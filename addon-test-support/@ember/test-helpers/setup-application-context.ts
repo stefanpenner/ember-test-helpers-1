@@ -83,8 +83,8 @@ export function setupRouterSettlednessTracking() {
     // track pending transitions via the public routeWillChange / routeDidChange APIs
     // routeWillChange can fire many times and is only useful to know when we have _started_
     // transitioning, we can then use routeDidChange to signal that the transition has settled
-    router.on('routeWillChange', () => (routerTransitionsPending = true));
-    router.on('routeDidChange', () => (routerTransitionsPending = false));
+    router.on('routeWillChange', () => {routerTransitionsPending = true});
+    router.on('routeDidChange', () => {routerTransitionsPending = false});
   } else {
     router = owner.lookup('router:main');
     ROUTER.set(context, router);
